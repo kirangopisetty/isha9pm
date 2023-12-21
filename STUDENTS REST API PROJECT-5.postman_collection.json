@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "4e8e2683-ed76-4780-85d6-d479e219a6a1",
+		"name": "STUDENTS REST API PROJECT-5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5040522",
+		"_collection_link": "https://www.postman.com/kiranmm/workspace/isha-9pm/collection/5040522-4e8e2683-ed76-4780-85d6-d479e219a6a1?action=share&source=collection_link&creator=5040522"
+	},
+	"item": [
+		{
+			"name": "POSITIVE TC",
+			"item": [
+				{
+					"name": "LIST ALL STUDENTS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code = 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is in JSON format\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains id, first_name, last_name, middle_name, data_of_birth\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"first_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"middle_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"last_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"date_of_birth\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thetestingworldapi.com/api/studentsDetails",
+							"protocol": "https",
+							"host": [
+								"thetestingworldapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"studentsDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST SINGLE STUDENT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code = 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is in JSON format\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains id, first_name, last_name, middle_name, data_of_birth\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"first_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"middle_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"last_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"date_of_birth\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thetestingworldapi.com/api/studentsDetails/10030349",
+							"protocol": "https",
+							"host": [
+								"thetestingworldapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"studentsDetails",
+								"10030349"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE A STUDENT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code = 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is in JSON format\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains id, first_name, last_name, middle_name, data_of_birth\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"first_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"middle_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"last_name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"date_of_birth\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Adnan\",\r\n    \"middle_name\": \"Mr\",\r\n    \"last_name\": \"Engineer\",\r\n    \"date_of_birth\": \"01-01-2002\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://thetestingworldapi.com/api/studentsDetails",
+							"protocol": "https",
+							"host": [
+								"thetestingworldapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"studentsDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE SINGLE STUDENT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code = 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is in JSON format\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains status, msg\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"status\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"msg\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"10030354\",\r\n    \"first_name\": \"ANNA\",\r\n    \"middle_name\": \"BANANA\",\r\n    \"last_name\": \"MIDO\",\r\n    \"date_of_birth\": \"12/23/1990\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://thetestingworldapi.com/api/studentsDetails/10030354",
+							"protocol": "https",
+							"host": [
+								"thetestingworldapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"studentsDetails",
+								"10030354"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE SINGLE STUDENT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify if response code = 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is in JSON format\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains status, msg\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"status\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"msg\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://thetestingworldapi.com/api/studentsDetails/10030361",
+							"protocol": "https",
+							"host": [
+								"thetestingworldapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"studentsDetails",
+								"10030361"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
